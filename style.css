@@ -1,9 +1,15 @@
 body {
-    font-family: Arial, sans-serif;
-  }
+  font-family: cursive, sans-serif;
+  background-color: #b4dfec;
+  color: #fff; 
+  background-image: url('letras.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
      
   h1 {
     text-align: center;
+  color: #3b9400;
     margin-top: 50px;
   }
      
@@ -15,13 +21,22 @@ body {
     width: 250px;
     border: 1px solid #ccc;
   }
-     
+  #reiniciar-btn {
+    display: block;
+     margin: 0 auto;
+     padding: 10px 20px;
+     font-size: 18px;
+     background-color: #0f0cba;
+     color: #fff;
+     border: none;
+     border-radius: 3px;
+  }   
   #guess-button {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #0CBABA;
+    background-color: #363d0d;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -30,6 +45,10 @@ body {
   button:active {
       transform: scale(0.95);
   }
+  button:disabled{
+    background-color: #0cba46;
+    }
+      
      
   .letter {
       border: 1px solid black;
@@ -38,6 +57,17 @@ body {
       min-width: 20px;
       text-align: center;
       display: inline-block
+  }
+  .contenedor-imagen {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+   }
+   
+  .centrado {
+    text-align: center ;
   }
      
   .row{
@@ -48,3 +78,4 @@ body {
       margin: 30px;
   }
  
+  

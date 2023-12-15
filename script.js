@@ -17,7 +17,7 @@ fetch (UrlApi).then (response => response.json())
     })
 .catch(err => { console.log("mensaje de error")}
 )
-let button = document.getElementById('guess-button')
+let button = document.getElementById('guess-button');
 
 button.addEventListener('click', intentar)
 
@@ -27,11 +27,16 @@ function intentar(){
     ROW.className = 'row'
     const INTENTO = leerIntento ();
     console.log (INTENTO)
-
+    if (INTENTO.length != 5) {
+        alert("Debe ingresar una palabra de 5 letras");
+        return;
+    }
     
     if (INTENTO===palabra){
         console.log("ganaste")
         terminar("Ganaste")
+        button.disabled = true;
+        reiniciarBtn.disabled = true;
     }
     for (let i in palabra){
         const SPAM = document.createElement('spam')
@@ -55,8 +60,10 @@ function intentar(){
 
     intentos--
     if (intentos===0){
-        console.log("Perdiste")
-        terminar("Perdiste")
+        console.log("Perdiste");
+        terminar("Perdiste");
+        button.disabled = true;
+        reiniciarBtn.disabled = true;
     }
 }
 
@@ -72,4 +79,22 @@ function terminar(mensaje){
     button.disabled = true;
     let contenedor = document.getElementById('guesses');
     contenedor.innerHTML = mensaje;
+}
+
+let reiniciarBtn = document.getElementById('reiniciar-btn');
+
+reiniciarBtn.addEventListener("click", reiniciarJuego);
+
+function reiniciarJuego() {
+    intentos = 6;
+    palabra = '';
+
+    const grid = document.getElementById("grid");
+    grid.innerHTML = '';
+ 
+    input.disabled = true;
+    let contenedor = document.getElementById('mensaje');
+    contenedor.innerHTML = '';
+    button.disabled = true;
+    reiniciarBtn.disabled = true;
 }
